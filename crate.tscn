@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmdxa0tstcvgg"]
+
+[ext_resource type="Texture2D" uid="uid://dl0p41u11hpxm" path="res://tanks-simple.png" id="1_uep05"]
+[ext_resource type="Script" uid="uid://di08a66q5fqtw" path="res://hitbox.gd" id="2_mo0jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo0jf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uep05"]
+
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 2
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_uep05")
+region_enabled = true
+region_rect = Rect2(99, 183, 56, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.455, 2.455)
+shape = SubResource("RectangleShape2D_mo0jf")
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource("2_mo0jf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(2.81, 2.81)
+shape = SubResource("RectangleShape2D_uep05")
+debug_color = Color(0.9764753, 0, 0.41516653, 0.41960785)
+
+[connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

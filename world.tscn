@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=4 uid="uid://bwtd1j1qpf8l0"]
+
+[ext_resource type="PackedScene" uid="uid://c0knxac3tu6gd" path="res://tank.tscn" id="1_f3sb7"]
+[ext_resource type="Texture2D" uid="uid://buphgk83sb2u3" path="res://tanks-terrain.png" id="1_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://dvgu2m6u3pxg7" path="res://block.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://dmdxa0tstcvgg" path="res://crate.tscn" id="4_aqk2v"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
+texture = ExtResource("1_fj7yv")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tlwt5"]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_fj7yv")
+
+[node name="world" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAGAAQAAAAAAAEAAAAFAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAADAAQAAAABAAAAAAACAAQAAAAAAAAAAAABAAQAAAAAAAAAAAABAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAQAAAAAAAAAAAADAAIAAAABAAAAAAADAAEAAAABAAAAAAACAAEAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAAMAAAABAAAAAAAEAAMAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAEAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAMAAAAAAAAAAAAGAAMAAAAAAAEAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tlwt5")
+
+[node name="Tank" parent="." instance=ExtResource("1_f3sb7")]
+position = Vector2(241, 159)
+
+[node name="Block" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(514, 391)
+
+[node name="Block2" parent="." instance=ExtResource("3_tlwt5")]
+position = Vector2(717, 232)
+
+[node name="Crate" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(545, 164)
+
+[node name="Crate2" parent="." instance=ExtResource("4_aqk2v")]
+position = Vector2(309, 340)
